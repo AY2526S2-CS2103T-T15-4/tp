@@ -17,7 +17,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[github](https://github.com/jaepple)]
 
-* Role: Code Quality
+- Role: Code Quality
 
 ### Kavish Sathia
 
@@ -27,7 +27,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](https://github.com/kavishsathia)]
 [[portfolio](https://starlang.dev)]
 
-* Role: Tech Support
+- Role: Tech Support
 
 ### Eunice Gwee
 
@@ -36,8 +36,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/eunicegwee)]
 [[portfolio](team/johndoe.m)]
 
-* Role: Developer
-* Responsibilities: UI
+- Role: Developer
+- Responsibilities: UI
 
 ### Harron Tan
 
@@ -45,7 +45,4 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[github](http://github.com/tanjy10)]
 
-* Role: Developer
-
 - Role: Developer
-- Responsibilities: UI
