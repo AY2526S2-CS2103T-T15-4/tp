@@ -19,6 +19,16 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Code Quality
 
+### Kavish Sathia
+
+<img src="images/kavishsathia.png" width="200px">
+
+[[homepage](https://github.com/kavishsathia)]
+[[github](https://github.com/kavishsathia)]
+[[portfolio](https://starlang.dev)]
+
+* Role: Tech Support
+
 ### Eunice Gwee
 
 <img src="images/eunicegwee.png" width="200px">
@@ -37,22 +47,5 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Developer
 
-### Jean Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
-
-### James Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: UI
+- Role: Developer
+- Responsibilities: UI
