@@ -38,7 +38,7 @@ We are a team based in the [School of Computing, National University of Singapor
 
 ### Harron Tan
 
-<img src="images/Tanjy10.png" width="200px">
+<img src="images/tanjy10.png" width="200px">
 
 [[github](http://github.com/tanjy10)]
 
