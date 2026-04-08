@@ -58,7 +58,12 @@
         "user-stories": "User stories",
         "use-cases": "Use cases",
         "non-functional-requirements-nfrs": "Non-Functional Requirements (NFRs)",
-        "glossary": "Glossary"
+        "glossary": "Glossary",
+        "appendix-instructions-for-manual-testing": "Appendix: Instructions for Manual Testing",
+        "recommended-test-flow": "Recommended test flow",
+        "test-data-setup": "Test data setup",
+        "features-to-cover": "Features to cover",
+        "important-inputs-to-copy-paste": "Important inputs to copy-paste"
       },
       "headingKeywords": {}
     },
