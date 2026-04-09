@@ -96,6 +96,15 @@ activate Model
 Model --> ConfirmationAction
 deactivate Model
 
+ConfirmationAction -> Model : setUndoAction(undoRunnable)
+activate Model
+Model --> ConfirmationAction
+deactivate Model
+note right
+  undoRunnable re-adds the
+  deleted person and their tags
+end note
+
 create FinalResult
 ConfirmationAction -> FinalResult : <<create>>\n("Deleted Person ...")
 activate FinalResult

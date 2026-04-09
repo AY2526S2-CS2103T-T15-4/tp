@@ -11,10 +11,10 @@ end box
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
-[-> LogicManager : execute(undo)
+[-> LogicManager : execute(":undo")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand(undo)
+LogicManager -> AddressBookParser : parseCommand(":undo")
 activate AddressBookParser
 
 create UndoCommand
@@ -30,7 +30,15 @@ deactivate AddressBookParser
 LogicManager -> UndoCommand : execute()
 activate UndoCommand
 
-UndoCommand -> Model : undoAddressBook()
+UndoCommand -> Model : getUndoAction()
+activate Model
+
+Model --> UndoCommand : undoAction
+deactivate Model
+
+UndoCommand -> UndoCommand : undoAction.run()
+
+UndoCommand -> Model : clearUndoAction()
 activate Model
 
 Model --> UndoCommand

@@ -8,10 +8,12 @@ start
 'Since the beta syntax does not support placing the condition outside the
 'diamond we place it as the true branch instead.
 
-if () then ([command commits AddressBook])
-    :Purge redundant states;
-    :Save AddressBook to
-    addressBookStateList;
+if () then ([command modifies data])
+    :Command executes mutation
+    on Model;
+    :Command stores undo action
+    via Model#setUndoAction();
+    note right: Overwrites any\nprevious undo action
 else ([else])
 endif
 stop

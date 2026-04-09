@@ -15,6 +15,7 @@ Class PersonListPanel
 Class PersonCard
 Class StatusBarFooter
 Class CommandBox
+Class CommandHistory
 Class PersonDetailsPanel
 }
 
@@ -39,6 +40,7 @@ MainWindow *-down-> "1" PersonDetailsPanel
 MainWindow --> "0..1" HelpWindow
 
 PersonListPanel -down-> "*" PersonCard
+CommandBox -down-> "1" CommandHistory
 
 MainWindow -left-|> UiPart
 

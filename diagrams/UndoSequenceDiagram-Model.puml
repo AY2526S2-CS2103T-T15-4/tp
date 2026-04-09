@@ -2,22 +2,38 @@
 !include style.puml
 skinparam ArrowFontStyle plain
 
-box Model MODEL_COLOR_T1
-participant ":Model" as Model MODEL_COLOR
-participant ":VersionedAddressBook" as VersionedAddressBook MODEL_COLOR
+box Logic LOGIC_COLOR_T1
+participant "a:AddCommand" as AddCommand LOGIC_COLOR
 end box
 
-[-> Model : undoAddressBook()
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> AddCommand : execute(model)
+activate AddCommand
+
+AddCommand -> Model : addPerson(toAdd)
 activate Model
-
-Model -> VersionedAddressBook : undo()
-activate VersionedAddressBook
-
-VersionedAddressBook -> VersionedAddressBook :resetData(ReadOnlyAddressBook)
-VersionedAddressBook --> Model :
-deactivate VersionedAddressBook
-
-[<-- Model
+Model --> AddCommand
 deactivate Model
+
+AddCommand -> Model : addTags(toAdd)
+activate Model
+Model --> AddCommand
+deactivate Model
+
+AddCommand -> Model : setUndoAction(undoRunnable)
+activate Model
+Model --> AddCommand
+deactivate Model
+note right
+  undoRunnable reverses the add:
+  model.deletePerson(toAdd)
+  model.deleteTags(toAdd)
+end note
+
+[<-- AddCommand : result
+deactivate AddCommand
 
 @enduml
