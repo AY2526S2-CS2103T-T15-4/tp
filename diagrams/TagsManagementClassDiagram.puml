@@ -1,0 +1,27 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+package Model {
+  Class "<<interface>>\nModel" as ModelInterface
+  Class ModelManager
+  Class AddressBook
+  Class Person
+
+  package "Tags Model" {
+      Class TagsRegistry
+      Class Tag
+  }
+}
+
+ModelManager .up.|> ModelInterface
+ModelManager *-- AddressBook
+ModelManager *-- TagsRegistry
+AddressBook "1" o-- "*" Person
+Person "*" --> "*" Tag
+TagsRegistry ..> Person
+TagsRegistry ..> Tag
+
+@enduml

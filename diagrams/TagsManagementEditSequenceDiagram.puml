@@ -1,0 +1,35 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+actor User LOGIC_COLOR_T1
+participant ":LogicManager" as Logic LOGIC_COLOR
+participant ":AddressBookParser" as Parser LOGIC_COLOR
+participant ":EditCommand" as EditCommand LOGIC_COLOR
+participant ":ModelManager" as Model LOGIC_COLOR
+participant ":TagsRegistry" as Registry LOGIC_COLOR
+
+User -> Logic : execute(":edit 3 t/backend dt/frontend")
+activate Logic
+
+Logic -> Parser : parseCommand(commandText)
+activate Parser
+Parser --> Logic : EditCommand
+deactivate Parser
+
+Logic -> EditCommand : execute(model)
+activate EditCommand
+EditCommand -> Model : updateEditedTags(oldPerson, editedPerson)
+activate Model
+Model -> Registry : updatePerson(oldPerson, editedPerson)
+activate Registry
+Registry --> Model
+deactivate Registry
+Model --> EditCommand
+deactivate Model
+EditCommand --> Logic : CommandResult
+deactivate EditCommand
+
+Logic --> User : "Edited Person: ..."
+deactivate Logic
+@enduml
