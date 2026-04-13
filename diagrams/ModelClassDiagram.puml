@@ -44,10 +44,10 @@ Person *--> Name
 Person *--> Phone
 Person *--> Email
 Person *--> Address
-Person *--> "*" Tag
+Person *--> "0..10" Tag
 Person *--> NoteList
 
-NoteList --> "*" Note
+NoteList --> "0..20" Note
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
@@ -59,5 +59,5 @@ Address -[hidden]right-> Email
 ModelManager --> "~* filtered" Person
 ModelManager --> "~* sorted" Person
 ModelManager -right-> "1" TagsRegistry
-TagsRegistry --> "~* all" Tag
+TagsRegistry --> "* all" Tag
 @enduml
