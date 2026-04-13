@@ -1,0 +1,55 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant "a:Supplier<CommandResult>" as ConfirmationAction LOGIC_COLOR
+participant "final:CommandResult" as FinalResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("yes")
+activate LogicManager
+
+note right of LogicManager
+pendingConfirmation != null, so parsing is skipped
+end note
+
+LogicManager -> ConfirmationAction : get()
+activate ConfirmationAction
+
+ConfirmationAction -> Model : deletePerson(personToDelete)
+activate Model
+Model --> ConfirmationAction
+deactivate Model
+
+ConfirmationAction -> Model : deleteTags(personToDelete)
+activate Model
+Model --> ConfirmationAction
+deactivate Model
+
+ConfirmationAction -> Model : setUndoAction(undoRunnable)
+activate Model
+Model --> ConfirmationAction
+deactivate Model
+note right
+  undoRunnable re-adds the
+  deleted person and their tags
+end note
+
+create FinalResult
+ConfirmationAction -> FinalResult : <<create>>\n("Deleted Person ...")
+activate FinalResult
+FinalResult --> ConfirmationAction
+deactivate FinalResult
+
+ConfirmationAction --> LogicManager : final result
+deactivate ConfirmationAction
+
+[<-- LogicManager : deletion confirmed
+deactivate LogicManager
+@enduml

@@ -5,7 +5,7 @@ skinparam ArrowFontStyle plain
 actor User LOGIC_COLOR_T1
 participant ":LogicManager" as Logic LOGIC_COLOR
 participant ":AddressBookParser" as Parser LOGIC_COLOR
-participant ":EditCommand" as EditCommand LOGIC_COLOR
+participant "e:EditCommand" as EditCommand LOGIC_COLOR
 participant ":ModelManager" as Model LOGIC_COLOR
 participant ":TagsRegistry" as Registry LOGIC_COLOR
 
@@ -14,7 +14,12 @@ activate Logic
 
 Logic -> Parser : parseCommand(commandText)
 activate Parser
-Parser --> Logic : EditCommand
+create EditCommand
+Parser -> EditCommand
+activate EditCommand
+EditCommand --> Parser
+deactivate EditCommand
+Parser --> Logic : e
 deactivate Parser
 
 Logic -> EditCommand : execute(model)
